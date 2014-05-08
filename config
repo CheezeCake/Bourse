@@ -1,0 +1,22 @@
+# VARIABLES POUVANT ETRE CONFIGURES
+#
+# fetch_interval : intervalle (en minutes) entre chaque recupérations
+#                  de données. [valeur par defaut=5]
+#
+# graph_interval :  intervalle (en minutes) entre chaque générations
+#                   de graphes. [valeur par defaut=20]
+#
+# percentage_alert : écart en pourcent à partir duquel une alerte
+#                    est envoyée. [valeur par defaut=30]
+#
+#
+# save_interval : intervalle (en minutes) entre chaque sauvegarde.
+#                 [valeur par defaut=60]
+#
+# save_quantity : nombre de graphes à être sauvegardés (en partant du
+#               plus récent). [valeur par defaut=3]
+
+# EXEMPLES:
+# fetch_interval=5 # /!\ NE PAS AJOUTER D'ESPACES AUTROUR DU SYMLBOLE '='
+
+fetch_interval=2

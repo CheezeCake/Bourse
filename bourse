@@ -1,0 +1,39 @@
+#!/bin/sh
+
+usage()
+{
+	echo "usage: $0 start|restart|stop|status|help"
+	exit 1
+}
+
+_help()
+{
+	echo "$0 command"
+	echo 'explications...'
+	exit 2
+}
+
+if [ $# -eq 0 ]
+then
+	usage;
+fi
+
+dir=`dirname $0`
+cd $dir # pwd = racine de l'application
+
+case $1 in
+start|stop|status)
+	scripts/$1.sh
+	;;
+restart)
+	echo 'restarting...'
+	scripts/stop.sh
+	scripts/start.sh
+	;;
+'help')
+	_help;
+	;;
+*)
+	usage;
+	;;
+esac
