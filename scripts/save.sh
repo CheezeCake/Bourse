@@ -23,5 +23,5 @@ n=`find graphs -name '*.png' $findopt | wc -l`
 
 if [ $n -gt 0 ]
 then
-	tar czf "save/`date +%Y_%m_%d_-_%H_%M`.tar.gz" "`find graphs -name '*.png' $findopt`"
+	tar czf "save/`date +%Y_%m_%d_-_%H_%M`.tar.gz" `find graphs -name '*.png' $findopt`
 fi
