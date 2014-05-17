@@ -1,9 +1,9 @@
 #!/bin/sh
 
-dir=`dirname $0`
+dir=`dirname "$0"`
 cd $dir
 
-for action in `cat ../tmp/actions`
+for action in "$@"
 do
 	if [ -f ../data/"$action" ]
 	then

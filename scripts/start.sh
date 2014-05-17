@@ -29,6 +29,8 @@ then
 	mkdir tmp
 fi
 
+actionlist=''
+
 for action in `cat actions`
 do
 	printf "Checking ${action}..."
@@ -38,15 +40,16 @@ do
 		echo "\tdoesn't exist! Ignoring."
 	else
 		echo "\tOK"
-		echo "$action" >> tmp/actions
+		#echo "$action" >> tmp/actions
+		actionlist="$actionlist $action"
 	fi
 done
 
 crontab -l 2> /dev/null > tmp/crontab.save
 cp tmp/crontab.save tmp/crontab
 
-echo "*/$fetch_interval * * * * $PWD/scripts/fetchdata.sh" >> tmp/crontab
-echo "*/$graph_interval * * * * $PWD/scripts/gengraph.sh" >> tmp/crontab
+echo "*/$fetch_interval * * * * $PWD/scripts/fetchdata.sh $actionlist" >> tmp/crontab
+echo "*/$graph_interval * * * * $PWD/scripts/gengraph.sh $actionlist" >> tmp/crontab
 # sauvegarde job
 
 crontab tmp/crontab

@@ -10,17 +10,14 @@ then
 	exit 1
 fi
 
-crontab -l 2> /dev/null > tmp/crontab
+# savegarder crontab avant de restaurer
+crontab -l 2> /dev/null > tmp/crontab.running
 
-if [ `diff tmp/crontab tmp/crontab.save | wc -l` -eq 1 ]
-then
-	echo 'Your current crontab and the crontab saved differ.'
-	echo 'Remove the stock scripts job manually by editing your crontab with crontab -e.'
-	exit 2
-fi
-
-#restaurer crontab
+# restaurer crontab
 echo 'Restoring old crontab'
 crontab tmp/crontab.save
+echo 'Note: your crontab was restored with a copy made before starting the service.'
+echo 'If you changed it while the service was running, you can find a copy of the'
+echo 'crontab made before the restoration in `tmp/crontab.runnig'"'"
 
-rm tmp/*
+rm tmp/crontab.save
