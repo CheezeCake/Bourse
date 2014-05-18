@@ -5,13 +5,13 @@ then
 	a=`cat ../data/"$1" | tail -2 | head -1 | cut -d' ' -f2`
 	b=`cat ../data/"$1" | tail -1 | cut -d' ' -f2`
 
-	c=`echo "scale=2; $a*0.9" | bc`
+	c=`echo "scale=2; $a*0.`$((100 - $1))`" | bc`
 	echo $a
 	echo $b
 	echo $c
 
 	if [ `echo "$b<$c" | bc` -eq 1 ]
 	then
-		echo 'baisse de plus de 10%'
+		echo "baisse de plus de $1%"
 	fi
 fi
