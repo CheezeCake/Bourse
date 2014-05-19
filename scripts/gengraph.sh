@@ -7,6 +7,6 @@ for action in "$@"
 do
 	if [ -f ../data/"$action" ]
 	then
-		gnuplot -e 'action='"'$action'" plotscript
+		gnuplot -e 'action='"'$action'" plotscript.plt
 	fi
 done
