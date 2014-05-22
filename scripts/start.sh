@@ -41,14 +41,14 @@ do
 	else
 		echo "\tOK"
 		#echo "$action" >> tmp/actions
-		actionlist="$actionlist $action"
+		actionlist="$action $actionlist"
 	fi
 done
 
 crontab -l 2> /dev/null > tmp/crontab.save
 cp tmp/crontab.save tmp/crontab
 
-echo "*/$fetch_interval * * * * $PWD/scripts/fetchdata.sh $actionlist" >> tmp/crontab
+echo "*/$fetch_interval * * * * $PWD/scripts/fetchdata.sh $percentage_alert $actionlist" >> tmp/crontab
 echo "*/$graph_interval * * * * $PWD/scripts/gengraph.sh $actionlist" >> tmp/crontab
 echo "*/$save_interval * * * * $PWD/scripts/save.sh $save_quantity $actionlist" >> tmp/crontab
 
