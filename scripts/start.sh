@@ -50,7 +50,7 @@ cp tmp/crontab.save tmp/crontab
 
 echo "*/$fetch_interval * * * * $PWD/scripts/fetchdata.sh $actionlist" >> tmp/crontab
 echo "*/$graph_interval * * * * $PWD/scripts/gengraph.sh $actionlist" >> tmp/crontab
-# sauvegarde job
+echo "*/$save_interval * * * * $PWD/scripts/save.sh $save_quantity $actionlist" >> tmp/crontab
 
 crontab tmp/crontab
 rm -f tmp/crontab
