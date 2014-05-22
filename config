@@ -19,4 +19,5 @@
 # EXEMPLES:
 # fetch_interval=5 # /!\ NE PAS AJOUTER D'ESPACES AUTROUR DU SYMLBOLE '='
 
-fetch_interval=2
+fetch_interval=1
+graph_interval=2
