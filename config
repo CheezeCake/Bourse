@@ -21,3 +21,4 @@
 
 fetch_interval=1
 graph_interval=2
+save_interval=10

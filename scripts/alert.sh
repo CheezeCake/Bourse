@@ -7,7 +7,6 @@ then
 
 	p=$((100 - $2))
 	c=`echo "scale=2; $a*0.$p" | bc`
-	echo $a, $b, $c
 
 	if [ `echo "$b<$c" | bc` -eq 1 ]
 	then
