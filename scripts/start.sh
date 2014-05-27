@@ -81,4 +81,10 @@ echo "`getCron $graph_interval` $PWD/scripts/gengraph.sh $actionlist" >> tmp/cro
 echo "`getCron $save_interval` $PWD/scripts/save.sh $save_quantity $actionlist" >> tmp/crontab
 
 crontab tmp/crontab
+if [ $? -ne 0 ]
+then
+	echo 'Error in configuring the crontab. Check if the syntax of your config file is correct.'
+	exit 1
+fi
+
 rm -f tmp/crontab
