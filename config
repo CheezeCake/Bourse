@@ -1,24 +1,31 @@
 # VARIABLES POUVANT ETRE CONFIGURES
 #
+# Lorsqu'il sagit d'une durée vous pouvez préciser l'unité en ajoutant
+# en suffixe à la valeur une des lettres suivantes:
+#	  m: minutes
+#	  h: heures
+#	  d: jours
+#
 # fetch_interval : intervalle (en minutes) entre chaque recupérations
-#                  de données. [valeur par defaut=5]
+#                  de données. [valeur par defaut=5m]
 #
 # graph_interval :  intervalle (en minutes) entre chaque générations
-#                   de graphes. [valeur par defaut=20]
+#                   de graphes. [valeur par defaut=20m]
 #
 # percentage_alert : écart en pourcent à partir duquel une alerte
 #                    est envoyée. [valeur par defaut=30]
 #
 #
 # save_interval : intervalle (en minutes) entre chaque sauvegarde.
-#                 [valeur par defaut=60]
+#                 [valeur par defaut=1h]
 #
 # save_quantity : nombre de graphes à être sauvegardés (en partant du
 #               plus récent). [valeur par defaut=3]
 
 # EXEMPLES:
-# fetch_interval=5 # /!\ NE PAS AJOUTER D'ESPACES AUTROUR DU SYMLBOLE '='
+# fetch_interval=15m # /!\ NE PAS AJOUTER D'ESPACES AUTROUR DU SYMLBOLE '='
+# graph_interval=2d
 
-fetch_interval=1
-graph_interval=2
-save_interval=10
+fetch_interval=1m
+graph_interval=2m
+save_interval=5h

@@ -3,11 +3,32 @@
 echo 'Starting...'
 
 # valeurs par défaut
-fetch_interval=5
-graph_interval=20
+fetch_interval=5m
+graph_interval=20m
 percentage_alert=30
-save_interval=60
+save_interval=1h
 save_quantity=3
+
+function getCron()
+{
+	value=`echo $1 | sed -E 's/^([0-9]*).*$/\1/'`
+	unit=`echo $1 | sed -E 's/^.*([a-z])$/\1/'`
+	cron=''
+
+	case $unit in
+		m)
+			cron="*/$value * * * *"
+			;;
+		h)
+			cron="* */$value * * *"
+			;;
+		d)
+			cron="* * */$value * *"
+			;;
+	esac
+
+	echo "$cron"
+}
 
 if [ -f config ]
 then
@@ -46,17 +67,18 @@ do
 		echo -e "\tdoesn't exist! Ignoring."
 	else
 		echo -e "\tOK"
-		#echo "$action" >> tmp/actions
 		actionlist="$action $actionlist"
 	fi
 done
 
+# generation crontab
+
 crontab -l 2> /dev/null > tmp/crontab.save
 cp tmp/crontab.save tmp/crontab
 
-echo "*/$fetch_interval * * * * $PWD/scripts/fetchdata.sh $percentage_alert $actionlist" >> tmp/crontab
-echo "*/$graph_interval * * * * $PWD/scripts/gengraph.sh $actionlist" >> tmp/crontab
-echo "*/$save_interval * * * * $PWD/scripts/save.sh $save_quantity $actionlist" >> tmp/crontab
+echo "`getCron $fetch_interval` $PWD/scripts/fetchdata.sh $percentage_alert $actionlist" >> tmp/crontab
+echo "`getCron $graph_interval` $PWD/scripts/gengraph.sh $actionlist" >> tmp/crontab
+echo "`getCron $save_interval` $PWD/scripts/save.sh $save_quantity $actionlist" >> tmp/crontab
 
 crontab tmp/crontab
 rm -f tmp/crontab
