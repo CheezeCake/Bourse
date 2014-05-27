@@ -37,15 +37,15 @@ fi
 
 actionlist=''
 
-for action in `cat actions`
+cat actions | while read action
 do
 	printf "Checking ${action}..."
 	#vérifier l'existance du titre avec le script getprice.sh
 	if [ `scripts/getprice.sh "$action" | wc -l` -eq 0 ]
 	then
-		echo "\tdoesn't exist! Ignoring."
+		echo -e "\tdoesn't exist! Ignoring."
 	else
-		echo "\tOK"
+		echo -e "\tOK"
 		#echo "$action" >> tmp/actions
 		actionlist="$action $actionlist"
 	fi
