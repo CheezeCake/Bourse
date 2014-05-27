@@ -22,7 +22,7 @@ dir=`dirname $0`
 cd $dir # pwd = racine de l'application
 
 case $1 in
-start|stop|status)
+start|stop)
 	scripts/$1.sh
 	;;
 restart)
