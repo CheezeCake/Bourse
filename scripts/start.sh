@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo 'Starting...'
 
@@ -13,6 +13,12 @@ if [ -f config ]
 then
 	echo 'Reading configuration...'
 	source config
+
+	if [ $? -ne 0 ]
+	then
+		echo 'Error reading config, exiting.'
+		exit 1
+	fi
 else
 	echo 'No configuation found, using default.'
 fi
