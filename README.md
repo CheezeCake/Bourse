@@ -20,3 +20,13 @@ Organisation:
 - config : Fichier de configuration des intervalles de temps et autres paramètres
 
 Utilisation:
+1 - Entrer les paramètres d'intervalle de temps, de sauvegarde et de valeur critique pour les alertes dans le fichier "config" en suivant les instructions contenues dans ce même fichier(si aucun paramètre n'est entré les paramètres par défaut seront actifs).
+2 - Entrer les actions suivies dans le fichier "actions"
+3 - Executer bourse start
+
+Commandes :
+bourse start : Lancement de l'application
+bourse stop : Fermeture de l'application
+bourse restart : Relancement de l'application
+bourse help : Affichage de l'aide
+bourse status : ????
