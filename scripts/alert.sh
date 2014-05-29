@@ -12,6 +12,6 @@ then
 	# la valeur par defaut de $email est _.
 	if [ `echo "$b<$c" | bc` -eq 1 ] && ! [ $3 != '_' ]
 	then
-		echo "Baisse de plus de $2% pour $1: valuer passé de $a à $b" | mail -s "Alerte baisse $1" "$3"
+		echo "Baisse de plus de $2% pour $1: valeur passée de $a à $b" | mail -s "Alerte baisse $1" "$3"
 	fi
 fi
