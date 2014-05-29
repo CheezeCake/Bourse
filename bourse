@@ -2,14 +2,17 @@
 
 usage()
 {
-	echo "usage: $0 start|restart|stop|status|help"
+	echo "usage: $0 start|restart|stop|help"
 	exit 1
 }
 
 _help()
 {
 	echo "$0 command"
-	echo 'explications...'
+	echo "bourse start: démmarre l'application"
+	echo "bourse stop: arrete l'application"
+	echo "bourse restart: redémarre l'application (équivalent à stop suivi de restart)"
+	echo "bourse help: affiche cette aide."
 	exit 2
 }
 
