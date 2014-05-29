@@ -40,7 +40,7 @@ Organisation:
 
 Utilisation:
 
-1 - Entrer les paramètres d'intervalle de temps, de sauvegarde et de valeur critique pour les alertes dans le fichier "config" en suivant les instructions contenues 
+1 - Entrer les paramètres d'intervalle de temps, de sauvegarde et de valeur critique pour les alertes dans le fichier "config" en suivant les instructions contenues
 dans ce même fichier(si aucun paramètre n'est entré les paramètres par défaut seront actifs).
 
 2 - Entrer les actions suivies dans le fichier "actions"
@@ -56,5 +56,3 @@ bourse stop : Fermeture de l'application
 bourse restart : Relancement de l'application
 
 bourse help : Affichage de l'aide
-
-bourse status : ????
