@@ -9,7 +9,8 @@ then
 	c=`echo "scale=2; $a*0.$p" | bc`
 
 	# $3 = email, envoyer un mail si l'adresse à été fournie par l'utilisateur
-	if [ `echo "$b<$c" | bc` -eq 1 ] && ! [ -z $3 ]
+	# la valeur par defaut de $email est _.
+	if [ `echo "$b<$c" | bc` -eq 1 ] && ! [ $3 != '_' ]
 	then
 		echo "Baisse de plus de $2% pour $1: valuer passé de $a à $b" | mail -s "Alerte baisse $1" "$3"
 	fi

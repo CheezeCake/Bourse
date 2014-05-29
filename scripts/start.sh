@@ -8,7 +8,7 @@ graph_interval=20m
 percentage_alert=30
 save_interval=1h
 save_quantity=3
-email=''
+email='_'
 
 function getCron()
 {
