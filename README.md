@@ -10,6 +10,7 @@ Organisation:
 
 - save : Dossier de stockage des sauvegardes
 
+
 - scripts :
 
   - start.sh : Script de lancement de l'application
@@ -27,6 +28,7 @@ Organisation:
   - getprice.sh : Script de récupération du cours de l'action
 
   - plotscript.sh : Script de génération d'un graphe avec gnuplot
+
 
 - tmp : Dossier utilisé pour les fichiers temporaires
 
