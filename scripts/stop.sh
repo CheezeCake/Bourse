@@ -5,7 +5,7 @@ echo 'Shuting down...'
 if ! [ -f tmp/crontab.save ]
 then
 	echo 'Your old crontab saved as tmp/crontab.save was erased !'
-	echo 'We can'"'"'t restore it, the current crontab is left as is.'
+	echo 'We can'"'"'t restore it, the current crontab is left as it is.'
 	echo 'Edit the crontab with crontab -e to remove the stock scripts jobs.'
 	exit 1
 fi
