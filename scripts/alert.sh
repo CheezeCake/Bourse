@@ -8,8 +8,9 @@ then
 	p=$((100 - $2))
 	c=`echo "scale=2; $a*0.$p" | bc`
 
-	if [ `echo "$b<$c" | bc` -eq 1 ]
+	# $3 = email, envoyer un mail si l'adresse à été fournie par l'utilisateur
+	if [ `echo "$b<$c" | bc` -eq 1 ] && ! [ -z $3 ]
 	then
-		echo "baisse de plus de $2%"
+		echo "Baisse de plus de $2% pour $1: valuer passé de $a à $b" | mail -s "Alerte baisse $1" "$3"
 	fi
 fi

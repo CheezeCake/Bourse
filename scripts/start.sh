@@ -8,6 +8,7 @@ graph_interval=20m
 percentage_alert=30
 save_interval=1h
 save_quantity=3
+email=''
 
 function getCron()
 {
@@ -58,7 +59,7 @@ fi
 
 actionlist=''
 
-cat actions | while read action
+cat actions | { while read action
 do
 	printf "Checking ${action}..."
 	#vérifier l'existance du titre avec le script getprice.sh
@@ -71,14 +72,16 @@ do
 	fi
 done
 
+
 # generation crontab
 
 crontab -l 2> /dev/null > tmp/crontab.save
 cp tmp/crontab.save tmp/crontab
 
-echo "`getCron $fetch_interval` $PWD/scripts/fetchdata.sh $percentage_alert $actionlist" >> tmp/crontab
+echo "`getCron $fetch_interval` $PWD/scripts/fetchdata.sh $percentage_alert $email $actionlist" >> tmp/crontab
 echo "`getCron $graph_interval` $PWD/scripts/gengraph.sh $actionlist" >> tmp/crontab
 echo "`getCron $save_interval` $PWD/scripts/save.sh $save_quantity $actionlist" >> tmp/crontab
+}
 
 crontab tmp/crontab
 if [ $? -ne 0 ]
