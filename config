@@ -6,10 +6,10 @@
 #	  h: heures
 #	  d: jours
 #
-# fetch_interval : intervalle (en minutes) entre chaque recupérations
+# fetch_interval : intervalle (en minutes) entre chaque recupération
 #                  de données. [valeur par defaut=5m]
 #
-# graph_interval :  intervalle (en minutes) entre chaque générations
+# graph_interval :  intervalle (en minutes) entre chaque génération
 #                   de graphes. [valeur par defaut=20m]
 #
 # percentage_alert : écart en pourcent à partir duquel une alerte
