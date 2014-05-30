@@ -6,21 +6,21 @@
 #	  h: heures
 #	  d: jours
 #
-# fetch_interval : intervalle (en minutes) entre chaque recupération
+# fetch_interval : intervalle entre chaque recupération
 #                  de données. [valeur par defaut=5m]
 #
-# graph_interval :  intervalle (en minutes) entre chaque génération
+# graph_interval :  intervalle entre chaque génération
 #                   de graphes. [valeur par defaut=20m]
 #
 # percentage_alert : écart en pourcent à partir duquel une alerte
 #                    est envoyée. [valeur par defaut=30]
 #
 #
-# save_interval : intervalle (en minutes) entre chaque sauvegarde.
+# save_interval : intervalle entre chaque sauvegarde.
 #                 [valeur par defaut=1h]
 #
 # save_quantity : nombre de graphes à être sauvegardés (en partant du
-#               plus récent). [valeur par defaut=3]
+#                 plus récent). [valeur par defaut=3]
 
 # EXEMPLES:
 # fetch_interval=15m # /!\ NE PAS AJOUTER D'ESPACES AUTROUR DU SYMLBOLE '='
